@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
 manage.py
-Point d’entrée officiel pour toutes les commandes Django.
 
-Usage :
+Point d’entrée principal pour toutes les commandes Django.
+
+Exemples d’utilisation :
     python manage.py runserver
     python manage.py migrate
     python manage.py collectstatic
@@ -13,7 +14,13 @@ Usage :
 
 import os
 import sys
+from pathlib import Path
 
+# Vérification de la version Python
+if sys.version_info < (3, 9):
+    sys.exit("Ce projet nécessite Python 3.9 ou supérieur.")
+
+BASE_DIR = Path(__file__).resolve().parent
 
 def main():
     """Initialise les settings Django et exécute les commandes."""

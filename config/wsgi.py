@@ -1,11 +1,7 @@
-"""
-WSGI config for your Django project.
-This file exposes the WSGI callable as a module-level variable named `application`.
-"""
-
 import os
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+# Remplace TONPROJET par le nom du dossier où se trouvent settings.py, urls.py, asgi.py
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "configs.settings")
 
 application = get_wsgi_application()

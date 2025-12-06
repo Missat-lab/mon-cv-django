@@ -1,11 +1,156 @@
+/* ====================================================
+   GLOBAL STYLING
+   Modern CV / Bootstrap-friendly
+==================================================== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f6f8fa;
+    color: #1f2937;
+    padding-bottom: 50px;
 }
 
-.card {
-    border-radius: 10px;
+h2 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+    color: #222;
 }
 
-.progress-bar {
-    transition: width 1s ease-in-out;
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1050px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* ====================================================
+   SECTIONS / CARDS
+==================================================== */
+section, .card {
+    background: #ffffff;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* ====================================================
+   PROFILE
+==================================================== */
+.profile-img {
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #0d6efd;
+    box-shadow: 0 8px 18px rgba(13,110,253,0.12);
+    margin-bottom: 15px;
+}
+
+.profile-info {
+    margin-top: 10px;
+}
+
+.profile-info a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+.profile-info a:hover {
+    text-decoration: underline;
+}
+
+/* ====================================================
+   SKILLS / PROGRESS BARS
+==================================================== */
+.progress {
+    height: 28px;
+    border-radius: 14px;
+    background: #eef2f7;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar.skill-bar {
+    background: linear-gradient(90deg, #0d6efd, #3b82f6);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: width 1.2s ease-in-out;
+}
+
+/* ====================================================
+   ACCORDIONS (Experience / Education)
+==================================================== */
+.accordion-item {
+    border-radius: 12px !important;
+    margin-bottom: 10px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.accordion-button {
+    font-weight: 600;
+    padding: 15px 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #eef7ff;
+    color: #0d6efd;
+    box-shadow: none;
+}
+
+.accordion-body {
+    background: #ffffff;
+    padding: 18px 20px;
+    font-size: 0.95rem;
+    color: #495057;
+}
+
+/* Chevron animation */
+.accordion-button::after {
+    transition: transform 0.2s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(180deg);
+}
+
+/* ====================================================
+   BADGES (Interests / Labels)
+==================================================== */
+.badge {
+    border-radius: 8px;
+    padding: 0.5rem 0.6rem;
+    font-weight: 600;
+}
+
+/* ====================================================
+   LINKS
+==================================================== */
+a {
+    color: #0d6efd;
+}
+
+a:hover {
+    color: #084298;
+}
+
+/* ====================================================
+   RESPONSIVE
+==================================================== */
+@media (max-width: 767px) {
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
 }
