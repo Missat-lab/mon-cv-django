@@ -16,7 +16,7 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 # -----------------------------
 # ALLOWED HOSTS
 # -----------------------------
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "mon-cv-django.onrender.com"]
 
 # -----------------------------
 # INSTALLED APPS
