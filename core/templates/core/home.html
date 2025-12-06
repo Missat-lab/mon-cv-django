@@ -1,0 +1,61 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ person.prenom }} {{ person.nom }} – CV{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Sidebar -->
+  <div class="col-lg-4 mb-4">
+    <div class="card p-3 shadow-sm mb-3">
+      <h2 class="fw-bold">{{ person.prenom }} {{ person.nom }}</h2>
+      <p class="text-muted">{{ person.titre }}</p>
+      <p> {{ person.ville }}</p>
+      <p> <a href="mailto:{{ person.email }}">{{ person.email }}</a></p>
+      {% if person.linkedin %}
+      <p>🔗 <a href="{{ person.linkedin }}" target="_blank">LinkedIn</a></p>
+      {% endif %}
+      <a class="btn btn-outline-primary mt-2 w-100" href="{% static 'data/Profile.pdf' %}" download>Télécharger le CV</a>
+    </div>
+
+    <div class="card p-3 shadow-sm" id="competences">
+      <h5 class="fw-bold">Compétences</h5>
+      {% for c in person.competences.all %}
+      <div class="mb-2">
+        <div class="d-flex justify-content-between">
+          <small>{{ c.nom }}</small>
+          <small>{{ c.niveau }}%</small>
+        </div>
+        <div class="progress">
+          <div class="progress-bar bg-primary" role="progressbar" style="width: {{ c.niveau }}%;"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="col-lg-8">
+    <section id="experiences" class="mb-4">
+      <h3 class="fw-bold mb-3">Expériences</h3>
+      {% for e in person.experiences.all %}
+      <div class="card mb-3 p-3 shadow-sm">
+        <h5>{{ e.titre }} — <small class="text-muted">{{ e.organisation }}</small></h5>
+        <small class="text-muted">{{ e.date_debut }} — {{ e.date_fin|default:"Présent" }}</small>
+        <p class="mt-2">{{ e.description }}</p>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section id="formations" class="mb-4">
+      <h3 class="fw-bold mb-3">Formations</h3>
+      {% for f in person.formations.all %}
+      <div class="mb-2">
+        <strong>{{ f.diplome }}</strong> — {{ f.ecole }}
+        <div class="text-muted">{{ f.date_debut }} — {{ f.date_fin }}</div>
+      </div>
+      {% endfor %}
+    </section>
+  </div>
+</div>
+{% endblock %}
